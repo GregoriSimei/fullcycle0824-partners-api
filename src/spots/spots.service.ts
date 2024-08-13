@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateSpotDto } from './dto/create-spot.dto';
 import { UpdateSpotDto } from './dto/update-spot.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { SpotStatus } from '@prisma/client';
 
 @Injectable()
 export class SpotsService {
@@ -22,7 +23,7 @@ export class SpotsService {
       data: {
         ...createSpotDto,
         eventId,
-        status: 'available',
+        status: SpotStatus.available,
       },
     });
   }
