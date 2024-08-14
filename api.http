@@ -42,7 +42,7 @@ POST http://localhost:3000/events/{{eventId}}/spots
 Content-Type: application/json
 
 {
-    "name": "A2"
+    "name": "A1"
 }
 
 ###
@@ -73,3 +73,6 @@ Content-Type: application/json
     "ticket_kind": "full",
     "email": "test@test.com"
 }
+
+###
+GET http://localhost:3000/events/{{eventId}}/reserves
