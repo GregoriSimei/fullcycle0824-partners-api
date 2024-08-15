@@ -11,7 +11,7 @@ import { ReservesService } from '@app/core/reserves/reserves.service';
 import { CreateReserveRequest } from './request/create-reserve.request';
 import { UpdateReserveRequest } from './request/update-reserve.request';
 
-@Controller('events/:id/reserves')
+@Controller('partner2/events/:id/reserves')
 export class ReservesController {
   constructor(private readonly reservesService: ReservesService) {}
 

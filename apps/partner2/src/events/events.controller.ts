@@ -12,7 +12,7 @@ import { EventsService } from '@app/core/events/events.service';
 import { CreateEventRequest } from './request/create-event.request';
 import { UpdateEventRequest } from './request/update-event.request';
 
-@Controller('events')
+@Controller('partner2/events')
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 

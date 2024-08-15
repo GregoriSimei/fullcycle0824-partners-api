@@ -12,7 +12,7 @@ import { SpotsService } from '@app/core/spots/spots.service';
 import { CreateSpotRequest } from './request/create-spot.request';
 import { UpdateSpotRequest } from './request/update-spot.request';
 
-@Controller('events/:eventId/spots')
+@Controller('partner2/events/:eventId/spots')
 export class SpotsController {
   constructor(private readonly spotsService: SpotsService) {}
 

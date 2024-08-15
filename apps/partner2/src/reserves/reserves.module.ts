@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ReservesService } from './reserves.service';
+import { ReservesCoreModule } from '@app/core/reserves/reserves-core.module';
 import { ReservesController } from './reserves.controller';
 
 @Module({
+  imports: [ReservesCoreModule],
   controllers: [ReservesController],
-  providers: [ReservesService],
 })
 export class ReservesModule {}
