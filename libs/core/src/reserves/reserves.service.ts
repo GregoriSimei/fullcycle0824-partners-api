@@ -8,12 +8,13 @@ import { PrismaService } from '../prisma/prisma.service';
 export class ReservesService {
   constructor(private prismaService: PrismaService) {}
 
-  async create(createReserveDto: CreateReserveDto) {
+  async create(createReserveDto: CreateReserveDto & { eventId: string }) {
     const spots = await this.prismaService.spot.findMany({
       where: {
         name: {
           in: createReserveDto.spots,
         },
+        eventId: createReserveDto.eventId,
       },
     });
 

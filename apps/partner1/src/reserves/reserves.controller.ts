@@ -6,18 +6,24 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { ReservesService } from '@app/core/reserves/reserves.service';
 import { CreateReserveRequest } from './request/create-reserve.request';
 import { UpdateReserveRequest } from './request/update-reserve.request';
+import { AuthGuard } from '@app/core/auth/auth.guard';
 
 @Controller('events/:id/reserves')
 export class ReservesController {
   constructor(private readonly reservesService: ReservesService) {}
 
+  @UseGuards(AuthGuard)
   @Post('')
-  create(@Body() createReserveRequest: CreateReserveRequest) {
-    return this.reservesService.create(createReserveRequest);
+  create(
+    @Body() createReserveRequest: CreateReserveRequest,
+    @Param('eventId') eventId: string,
+  ) {
+    return this.reservesService.create({ ...createReserveRequest, eventId });
   }
 
   @Get()
